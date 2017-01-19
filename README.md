@@ -1,6 +1,6 @@
 # CWDAML and Adaptive CWDA
 
-I had proposed and implemented 3 novel adaptive learning algorithms for time series data prediction and classification utilising modified linear and logistic regression techniques for optical communication receiver designs in my Ph.D. endeavour.This repository contains the Matlab code to simulate [1] Complex-Weighted Decision-Aided Maximum-Likelihood (CWDAML) and [2] Adaptive Complex-weighted Decision-Aided (Adaptive CWDA) algorithms for M-ary Phase-Shift Keying (MPSK) and M-ary Quadrature Amplitude Modulation (MQAM) modulation formats.
+I had proposed and implemented 3 novel adaptive learning algorithms for time series data prediction and classification utilising modified linear and logistic regression techniques for optical communication receiver designs in my Ph.D. endeavour at National University of Singapore in the period Aug 2010 - Jul 2014. This repository contains the Matlab code to simulate [1] Complex-Weighted Decision-Aided Maximum-Likelihood (CWDAML) and [2] Adaptive Complex-weighted Decision-Aided (Adaptive CWDA), algorithms for M-ary Phase-Shift Keying (MPSK) and M-ary Quadrature Amplitude Modulation (MQAM) modulation formats.
 
 For explanation of algorithms:
 - Please refer to my LinkedIn profile for links to my published journal/conference papers where the algorithms have been explained in detail.

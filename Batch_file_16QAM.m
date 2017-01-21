@@ -10,7 +10,7 @@ disp('--------------------');
 disp('Start of batch file');
 time1 = clock; %Retrieve starting time to compute code run time later
 format shortG %Number display format
-save_loc = '.\Results\BatchResults.mat'; % Location to save batch file values
+save_loc = '.\SimulationResults\BatchResults.mat'; % Location to save batch file values
 
 %%
 

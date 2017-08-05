@@ -10,11 +10,11 @@ disp('--------------------');
 disp('Start of batch file');
 time1 = clock; %Retrieve starting time to compute code run time later
 format shortG %Number display format
-save_loc = '.\Results\BatchResults.mat'; % Location to save batch file values
+save_loc = './Results/Batch Results.mat'; % Location to save batch file values
 
 %%
 
-%Initialize general run parameters (rp)
+%Initialize general run parameters (rp)   
 stream0 = RandStream('mt19937ar','Seed',0);
 rp.stream = stream0; %Random number stream
 rp.total_run = 1; %Number of times to repeat simulation to obtain ensemble average
@@ -26,29 +26,26 @@ rp.step_size = 1; %Incremental value of SNR 0.5 dB or 1 dB, Units: dB
 rp.No_sent_symbols = 5e6; %Total no of symbols to send before computing BER
 rp.total_error_bit = 500; %Total no bit errors to count before computing BER
 rp.idl_dcs_fdb = 0; %Ideal decision feedback
+rp.quantize = 0; %Number of quantization bits, 0 = no_quantization
 
 %Call the functions     
 rp.M = 16;
-rp.format = 'QAM'; 
+rp.format = 'QAM';
 symbolRate = 28e9;
-FL = 12; %Filter length
 LSR = 1.12e6/symbolRate; %Linewidth/Symbol_Rate
 FSR = 2.8e9/symbolRate; %Frequency/Symbol_rate           
 
-%Other parameters
-rp.bit_rate = log2(rp.M)*symbolRate; %Bit rate, Units: bits/s   
+rp.bit_rate = log2(rp.M)*symbolRate; %Bit rate, Units: bits/s 
 LBR = (1/log2(rp.M))*LSR; %Linewidth/Bit_rate
 FBR = (1/log2(rp.M))*FSR; %Frequency/Bit_rate
 FO = rp.bit_rate*FBR; %Frequency offset
 LLW = rp.bit_rate*LBR; %Laser Linewidth
+rp.laser_linewidth = LLW; %Laser linewidth, Units: Hz
+rp.frequency_offset = FO; %Frequency offset, Units: Hz          
 
-%CW-DA-ML
-rp.laser_linewidth = LLW;
-rp.frequency_offset = FO; %Frequency offset, Units: Hz
-rp.filter_length = FL;
-rp.freq_est_length = inf;
-rp.training_length = 5e3;
-value = CWDAML_MQAM(rp);   
+rp.training_length = 100; %Training_length. Not applicable to Block_Mth_power scheme.   
+rp.freq_est_length = inf; %No_sent_symbols to be used for frequency estimation
+value = Adaptive_CWDAML_MQAM(rp);            
 
 %%
 %Save all variables from current workspace for later access

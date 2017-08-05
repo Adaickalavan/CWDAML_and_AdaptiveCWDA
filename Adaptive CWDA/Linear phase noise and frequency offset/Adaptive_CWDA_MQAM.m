@@ -5,7 +5,7 @@
 %Adaptive CWDA for MQAM
 
 %%
-function [SNR_value] = Adaptive_CWDAML_MQAM(rp)
+function [SNR_value] = Adaptive_CWDA_MQAM(rp)
 
 disp('--------------------');
 disp('Start of program run');

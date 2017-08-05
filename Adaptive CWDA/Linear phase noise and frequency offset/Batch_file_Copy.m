@@ -24,7 +24,7 @@ rp.SNR_begin = 6; %Signal to noise ratio per bit, Units: dB
 rp.SNR_max = 20; %Maximum SNR limit before declaring a phase tracking failure, Units: dB
 rp.step_size = 1; %Incremental value of SNR 0.5 dB or 1 dB, Units: dB
 rp.No_sent_symbols = 5e6; %Total no of symbols to send before computing BER
-rp.total_error_bit = 500; %Total no bit errors to count before computing BER
+rp.total_error_bit = 1000; %Total no bit errors to count before computing BER
 rp.idl_dcs_fdb = 0; %Ideal decision feedback
 rp.quantize = 0; %Number of quantization bits, 0 = no_quantization
 
@@ -32,7 +32,7 @@ rp.quantize = 0; %Number of quantization bits, 0 = no_quantization
 rp.M = 4;
 rp.format = 'PSK';
 symbolRate = 28e9;
-LSR = 1.12e6/symbolRate; %Laser linewidth(Hz)/Symbol_Rate
+LSR = 11.2e6/symbolRate; %Laser linewidth(Hz)/Symbol_Rate
 FSR = 2.8e9/symbolRate; %Frequency offset(Hz)/Symbol_rate           
 
 rp.bit_rate = log2(rp.M)*symbolRate; %Bit rate, Units: bits/s 

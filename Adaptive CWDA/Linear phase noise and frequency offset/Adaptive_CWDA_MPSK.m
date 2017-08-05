@@ -149,15 +149,14 @@ ave_BER = mean(BER,2); %Averaging along each row
 %Compute SNR value at specified BER value
 y0 = ave_BER(1:(1/step_size)*(highest_SNR-SNR_begin)+1);
 x0 = (SNR_begin:step_size:highest_SNR).';
-% SNR_value = interpolate(rp,x0,y0);
-SNR_value = 0;
+SNR_value = interpolate(rp,x0,y0);
 fprintf('SNR at BER = %5.2e is %6.4f dB\n', rp.read_BEP, SNR_value);
 
 %%
 %Save all variables from current workspace for later access
 full_name = mfilename('fullpath'); %Obtain the full name of this script/function 
 [unwanted, filename, unwanted] = fileparts(full_name); %Parse out the filename alone
-pathname = './Simulation Results/'; %Set the location path to save
+pathname = './Results/'; %Set the location path to save
 save_loc = [pathname,filename,'_',num2str(M,'%u'),'-PSK_BR_',num2str(R,'%10.3G'),'_LLW_',num2str(laser_linewidth,'%10.3G'),'_FO_',num2str(frequency_offset,'%10.3G'),'_idlFdb_',num2str(rp.idl_dcs_fdb,'%u'),'.mat'];
 save(save_loc);
 
